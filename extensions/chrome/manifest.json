@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+
+    "name": "Biv.io commenting platform",
+    "description": "This extension adds a commenting platform to any webpage.",
+    "version": "0.1",
+
+    "permissions": [
+        "https://api.biv.dev/",
+        "http://api.biv.dev/",
+        "http://api.biv.io/",
+        "https://api.biv.io/"
+    ],
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+    "browser_action": {
+        "default_icon": "square-19x19.png",
+        "default_popup": "app.html"
+    }
+}

@@ -1,0 +1,8 @@
+Cython==0.21.2
+git+git://github.com/hayate/WSGISession.git@v0.1.1
+uWSGI==2.0.9
+ujson==1.33
+redis==2.10.3
+psycopg2==2.5.4
+pycrypto==2.6.1
+falcon==0.1.10
