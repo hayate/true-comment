@@ -1,0 +1,32 @@
+---
+-- Create schema
+---
+
+BEGIN;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    token VARCHAR(32) NOT NULL UNIQUE,
+    username VARCHAR(128) NOT NULL UNIQUE,
+    email VARCHAR(128) NOT NULL UNIQUE,
+    password VARCHAR(64) NOT NULL,
+    name VARCHAR(128),
+    surname VARCHAR(128),
+    meta JSON,
+    ctime TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW() NOT NULL,
+    mtime TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW() NOT NULL
+);
+
+CREATE TABLE resources (
+    id SERIAL PRIMARY KEY,
+    resource VARCHAR NOT NULL UNIQUE
+)
+
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    resource_id int NOT NULL,
+    user_id int NOT NULL,
+    comment VARCHAR NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (resource_id) REFERENCES resources(id) ON UPDATE CASCADE ON DELETE CASCADE
+);

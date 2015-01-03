@@ -2,7 +2,6 @@
 
 import falcon
 import ujson as json
-from logger import Logger
 
 
 def serialize(req, resp):
